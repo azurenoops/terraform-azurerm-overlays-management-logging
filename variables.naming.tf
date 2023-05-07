@@ -28,3 +28,9 @@ variable "custom_resource_group_name" {
   type        = string
   default     = null
 }
+
+variable "ops_logging_law_custom_name" {
+  description = "The name of the custom operational logging laws workspace to create. If not set, the name will be generated using the 'name_prefix' and 'name_suffix' variables. If set, the 'name_prefix' and 'name_suffix' variables will be ignored."
+  type        = string
+  default     = null
+}
