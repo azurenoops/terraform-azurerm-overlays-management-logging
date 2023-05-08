@@ -11,13 +11,18 @@ output "laws_name" {
 }
 
 output "laws_rgname" {
-  description = "Resource Group for Laws"
+  description = "LAWS Resource Group Name"
   value       = local.resource_group_name
 }
 
 output "laws_resource_id" {
-  description = "Resource ID for Laws"
+  description = "LAWS Resource ID"
   value       = azurerm_log_analytics_workspace.loganalytics.id
+}
+
+output "laws_workspace_id" {
+  description = "LAWS Workspace ID"
+  value       = azurerm_log_analytics_workspace.loganalytics.workspace_id
 }
 
 output "laws_storage_account_id" {

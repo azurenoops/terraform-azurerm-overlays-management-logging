@@ -69,4 +69,9 @@ locals {
       promotionCode : ""
     }
   ]
+
+  privateLinkConnectionName    = "plconn${azurerm_log_analytics_workspace.loganalytics.name}${random_id.uniqueString.hex}"
+  privateLinkEndpointName      = "pl${azurerm_log_analytics_workspace.loganalytics.name}${random_id.uniqueString.hex}"
+  privateLinkScopeName         = "plscope${azurerm_log_analytics_workspace.loganalytics.name}${random_id.uniqueString.hex}"
+  privateLinkScopeResourceName = "plscres${azurerm_log_analytics_workspace.loganalytics.name}${random_id.uniqueString.hex}"
 }
