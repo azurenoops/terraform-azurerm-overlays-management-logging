@@ -6,8 +6,8 @@
 #----------------------------------------------------------
 module "loganalytics_sa" {
   source              = "azurenoops/overlays-storage-account/azurerm"
-  version             = ">= 0.1.0"  
-  depends_on = [ module.mod_scaffold_rg ]
+  version             = ">= 0.1.0"
+  depends_on          = [module.mod_scaffold_rg]
   resource_group_name = local.resource_group_name
   location            = local.location
   environment         = var.environment
