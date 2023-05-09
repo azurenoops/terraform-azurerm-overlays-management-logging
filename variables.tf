@@ -53,24 +53,6 @@ variable "existing_resource_group_name" {
   default     = null
 }
 
-#####################################
-# Private Endpoint Configuration   ##
-#####################################
-
-variable "private_endpoint_subnet_name" {
-  description = "Name of the subnet for the private endpoint"
-  default     = null
-}
-
-variable "private_endpoint_virtual_network_name" {
-  description = "Name of the virtual network for the private endpoint"
-  default     = null
-}
-
-variable "private_endpoint_resource_group_name" {
-  description = "Name of the resource group for the private endpoint"
-  default     = null
-}
 
 
 
