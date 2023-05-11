@@ -10,7 +10,7 @@ resource "random_id" "uniqueString" {
     org_prefix = var.org_name
     subid      = var.workload_name
   }
-  byte_length = 8
+  byte_length = 3
 }
 
 locals {
