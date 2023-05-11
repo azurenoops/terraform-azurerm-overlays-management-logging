@@ -17,14 +17,14 @@ resource "azurerm_log_analytics_linked_storage_account" "loganalytics_st_ingesti
   data_source_type      = "Ingestion"
   resource_group_name   = local.resource_group_name
   workspace_resource_id = azurerm_log_analytics_workspace.loganalytics.id
-  storage_account_ids   = [module.loganalytics_sa.storage_account_id]
+  storage_account_ids   = [module.mod_loganalytics_sa.storage_account_id]
 }
 
 resource "azurerm_log_analytics_linked_storage_account" "loganalytics_st_alerts_link" {
   data_source_type      = "Alerts"
   resource_group_name   = local.resource_group_name
   workspace_resource_id = azurerm_log_analytics_workspace.loganalytics.id
-  storage_account_ids   = [module.loganalytics_sa.storage_account_id]
+  storage_account_ids   = [module.mod_loganalytics_sa.storage_account_id]
 }
 
 #---------------------------------------------------------

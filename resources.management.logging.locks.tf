@@ -17,8 +17,8 @@ resource "azurerm_management_lock" "laws_resource_group_level_lock" {
 #------------------------------------------------------------
 resource "azurerm_management_lock" "sa_resource_group_level_lock" {
   count      = var.enable_resource_locks ? 1 : 0
-  name       = "${module.loganalytics_sa.storage_account_name}-${var.lock_level}-lock"
-  scope      = module.loganalytics_sa.storage_account_id
+  name       = "${module.mod_loganalytics_sa.storage_account_name}-${var.lock_level}-lock"
+  scope      = module.mod_loganalytics_sa.storage_account_id
   lock_level = var.lock_level
-  notes      = "Storage Account '${module.loganalytics_sa.storage_account_name}' is locked with '${var.lock_level}' level."
+  notes      = "Storage Account '${module.mod_loganalytics_sa.storage_account_name}' is locked with '${var.lock_level}' level."
 }

@@ -44,3 +44,8 @@ output "laws_storage_account_location" {
   description = "LAWS Storage Account Location"
   value       = local.location
 }
+
+output "laws_private_link_scope_id" {
+  description = "LAWS Private Link ID"
+  value       = azurerm_monitor_private_link_scope.global_pls.id
+}
