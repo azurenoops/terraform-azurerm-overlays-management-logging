@@ -19,9 +19,6 @@ module "mod_loganalytics_sa" {
   account_kind             = var.loganalytics_storage_account_kind
   account_tier             = var.loganalytics_storage_account_tier
   account_replication_type = var.loganalytics_storage_account_replication_type
-  storage_blob_data_protection = {
-    change_feed_enabled = false
-  }
   # Locks
   enable_resource_locks = var.enable_resource_locks
   add_tags              = merge(local.default_tags, var.add_tags, )
