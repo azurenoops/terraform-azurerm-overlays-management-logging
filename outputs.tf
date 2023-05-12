@@ -27,12 +27,12 @@ output "laws_workspace_id" {
 
 output "laws_storage_account_id" {
   description = "LAWS Storage Account ID"
-  value       = module.loganalytics_sa.storage_account_id
+  value       = module.mod_loganalytics_sa.storage_account_id
 }
 
 output "laws_storage_account_name" {
   description = "LAWS Storage Account Name"
-  value       = module.loganalytics_sa.storage_account_name
+  value       = module.mod_loganalytics_sa.storage_account_name
 }
 
 output "laws_storage_account_rgname" {
