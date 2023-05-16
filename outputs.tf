@@ -25,6 +25,11 @@ output "laws_workspace_id" {
   value       = azurerm_log_analytics_workspace.loganalytics.workspace_id
 }
 
+output "laws_primary_shared_key" {
+  description = "LAWS Primary Shared Key"
+  value       = azurerm_log_analytics_workspace.loganalytics.primary_shared_key
+}
+
 output "laws_storage_account_id" {
   description = "LAWS Storage Account ID"
   value       = module.mod_loganalytics_sa.storage_account_id
