@@ -52,5 +52,5 @@ output "laws_storage_account_location" {
 
 output "laws_private_link_scope_id" {
   description = "LAWS Private Link ID"
-  value       = azurerm_monitor_private_link_scope.global_pls.id
+  value       = module.mod_ampls.*.azurerm_monitor_private_link_scope_id
 }
