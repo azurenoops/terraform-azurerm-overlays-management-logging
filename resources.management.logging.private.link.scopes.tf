@@ -1,20 +1,33 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 
-resource "azurerm_monitor_private_link_scope" "global_pls" {
-  name                = local.privateLinkScopeName
-  resource_group_name = local.resource_group_name
+#######################################
+# Azure Monitor Private Link Scope   ##
+#######################################
+
+module "mod_ampls" {
+  source  = "azurenoops/overlays-azure-monitor-private-link-scope/azurerm"
+  version = "~> 0.1"
+
+  count = var.enable_ampls ? 1 : 0
+
+  depends_on = [azurerm_log_analytics_workspace.loganalytics]
+
+  # Resource Group, location, VNet and Subnet details
+  create_resource_group = true
+  location              = var.location
+  deploy_environment    = var.deploy_environment
+  environment           = var.environment
+  org_name              = var.org_name
+
+  # Log Analytics Workspaces
+  linked_log_analytic_workspace_ids = [azurerm_log_analytics_workspace.loganalytics.id]
+
+  # Private Endpoint details
+  # Resource Group, location, VNet and Subnet details
+  # This need to be the same as the VNet and Subnet where the Private Endpoint will be deployed
+  existing_ampls_network_resource_group_name = var.existing_network_resource_group_name
+  existing_ampls_virtual_network_name        = var.existing_virtual_network_name
+  existing_ampls_private_subnet_name         = var.existing_private_subnet_name
+
 }
-
-resource "azurerm_monitor_private_link_scoped_service" "laws_pls" {
-  depends_on = [
-    azurerm_monitor_private_link_scope.global_pls,
-    azurerm_log_analytics_workspace.loganalytics
-  ]
-  name                = local.privateLinkScopeResourceName
-  resource_group_name = local.resource_group_name
-  scope_name          = azurerm_monitor_private_link_scope.global_pls.name
-  linked_resource_id  = azurerm_log_analytics_workspace.loganalytics.id
-}
-
-
